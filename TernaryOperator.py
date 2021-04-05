@@ -32,7 +32,6 @@ print(lista)
 a = 'test'
 print('Right') if a == 'test' else print('Wrong')
 
-
 mylist = [4, 8, 3, 9]
 a = [i for i in mylist if i < 5]
 print(a)
