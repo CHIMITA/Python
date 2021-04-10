@@ -11,6 +11,7 @@ explode = [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
 plt.pie(scores, labels=team, colors=colors, autopct='%.1f%%', startangle=90, counterclock=False, explode=explode)
 plt.title('Network Hacking in 2017')
 plt.savefig('PythonNetHAK.png')
+
 '''
 
 '''
