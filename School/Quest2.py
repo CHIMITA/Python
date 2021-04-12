@@ -21,5 +21,3 @@ def diffsum(a,b,c):
 print(sum(a,b,c))
 print(squared(a,b,c))
 print(diffsum(a,b,c))
-
-
