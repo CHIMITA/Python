@@ -8,4 +8,3 @@ def factorial(n):
 
 num = int(input("Factorial 숫자 입력 :"))
 print("1=",format(factorial(num),','))
-
