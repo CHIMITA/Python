@@ -1,4 +1,4 @@
-#도전문제 1
+#도전문제 5
 a,b,c = map(int,input("3개의 숫자를 입력하세요 :").split(','))
 
 def sum(a,b,c):
