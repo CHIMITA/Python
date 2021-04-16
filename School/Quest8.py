@@ -26,6 +26,5 @@ def diffsum2(a,b,c):
     
     return rv
 
-
 a,b,c = map(int,input("숫자를 입력하세요~ :").split())
 print(diffsum2(a,b,c))
