@@ -28,7 +28,6 @@ while(True):
     data4 = input("출생년도 입력 :")
 
     sql = "INSERT INTO studentTB VALUES(" + data1 + "','" + data2 + "','"+ data3 + "','" + data4 +")"
-
     
     cur.execute(sql)
 con.commit()
