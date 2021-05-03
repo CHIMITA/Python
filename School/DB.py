@@ -1,34 +1,45 @@
 import sqlite3
-'''
-con = sqlite3.connect("C:\\Users\\User\\Python")
+
+poem = '''누구를 위해 누군가
+        기도하고 있나 봐
+        숨죽여 쓴 사랑시가
+        낮게 들리는 듯해
+        너에게로 선명히 날아가
+        늦지 않게 자리에 닿기를'''
+
+con,cur=None,None
+onechar,count="",0
+
+con = sqlite3.connect("C:\\Users\\User\\Desktop\\sangilDB")
 
 cur = con.cursor()
+cur.execute("DROP TABLE IF EXISTS poemTB")
+cur.execute("CREATE TABLE poemTB(onechar char(1), count INT)")
 
-cur.execute("CREATE TABLE studentTB (id char(5), name char(15), email char(15), birthyear int)")
-cur.execute("INSERT INTO studentTB VALUES('30201','Anne','30201@naver.com',2003)")
-cur.execute("INSERT INTO studentTB VALUES('30202','Rachel','30202@naver.com',2004)")
-cur.execute("INSERT INTO studentTB VALUES('30203','James','30203@naver.com',2005)")
-cur.execute("INSERT INTO studentTB VALUES('30204','Cindy','30204@naver.com',2006)")
+for ch in poem:
+    if 'ㄱ' <= ch <= '힣':
+        cur.execute("SELECT * FROM poemTB WHERE onechar = '" + ch + "'")
+        row = cur.fetchone()
 
+        if row == None:
+            cur.execute("INSERT INTO poemTB VALUES ('" + ch + "'," + str(1) + ")")
+        else:
+            cnt = row[1]
+            cur.execute("UPDATE poemTB SET count = " + str(cnt + 1) + " WHERE ONECHAR = '" + ch +"'")
 con.commit()
-con.close()
 
-'''
-
-con = sqlite3.connect("C:\\Users\\User\\Python")
-
-cur = con.cursor()
+cur.execute("SELECT * FROM poemTB ORDER BY count DESC")
+print("원문\n", poem)
+print("-" * 10)
+print("문자\t 빈도수")
+print("-" * 10)
 
 while(True):
-    data1 = input("학번 입력 :")
-    if data1 == "":
+    row = cur.fetchone()
+    if row == None:
         break
-    data2 = input("이름 입력 :")
-    data3 = input("e-mail 입력 :")
-    data4 = input("출생년도 입력 :")
+    ch = row[0]
+    cnt = row[1]
+    print("%4s %5d" %(ch, cnt))
 
-    sql = "INSERT INTO studentTB VALUES(" + data1 + "','" + data2 + "','"+ data3 + "','" + data4 +")"
-    
-    cur.execute(sql)
-con.commit()
 con.close()
