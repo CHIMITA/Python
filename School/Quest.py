@@ -76,6 +76,4 @@ def days(a):
     elif a == '2':
         return year[2]  
   
-        
 print(days(mon))
-    
