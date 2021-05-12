@@ -18,7 +18,6 @@ def clear(): #초기화
     entdata.get()
     entdata.delete(0, END)
 
-
 win = Tk()
 win.title("My Calculator")
 win.geometry("270x125")
@@ -41,4 +40,3 @@ entdata = Entry(win, width=33, bg="skyblue")
 entdata.grid(row=0, column=0, columnspan=x)
 
 win.mainloop()
-
