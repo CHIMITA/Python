@@ -1,8 +1,6 @@
 
 #파이썬 기초 강의 01.pdf 
 
-from datetime import date
-
 
 print("이름을 입력하세요 : ")
 data = input() #input은 항상 문자열 자료형  
