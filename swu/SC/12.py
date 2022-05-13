@@ -9,8 +9,8 @@ square_h = int(input("사각형의 가로 길이를 입력하시오. : "))
 square_l = int(input("사각형의 세로 길이를 입력하시오. : "))
 
 #모듈 사용
-square.square_a(square_h, square_l)
-square.square_r(square_h, square_l)
+print("사각형의 넓이 : ",square.square_a(square_h, square_l))
+print("사각형의 둘레 : ",square.square_r(square_h, square_l))
 
 
 
