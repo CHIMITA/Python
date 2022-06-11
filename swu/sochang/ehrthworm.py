@@ -11,33 +11,34 @@ y = 0
 width = 610
 height= 400
 
-def noseShape(event):
-    global nose
-    img = tk.PhotoImage(file='/Users/jiwon/Desktop/Python/sochang/nose.png')
-    nose = canvas.create_image(x, y, anchor=NW, image=img)
+class Game():
+    def noseShape(event):
+        global nose
+        img = tk.PhotoImage(file='/Users/jiwon/Desktop/Python/sochang/nose.png')
+        nose = canvas.create_image(x, y, anchor=NW, image=img)
 
 
-def noseMove(event):
-    global x
-    if event.char == 'Left':
-        x -= 10
-        canvas.move(nose, x, y)
-    elif event.char == 'Right':   
-        x += 10
-        canvas.move(nose, x, y)
+    def noseMove(event):
+        global x
+        if event.char == 'Left':
+            x -= 10
+            canvas.move(nose, x, y)
+        elif event.char == 'Right':   
+            x += 10
+            canvas.move(nose, x, y)
 
-    canvas.coords(x, y)
+        canvas.coords(x, y)
 
-canvas = tk.Canvas(bg = '#AD7167', width = width, height = height)
-canvas.pack()
+        canvas = tk.Canvas(bg = '#AD7167', width = width, height = height)
+        canvas.pack()
 
     
 my_label = Label(root, text="")
 my_label.config(text='위치는 : x| ' + str(x))
 my_label.pack(pady=20)
 
-root.bind("<Left>", noseMove)
-root.bind("<Right>", noseMove)
+root.bind("<Left>", Game.noseMove)
+root.bind("<Right>", Game.noseMove)
 
 root.title("리듬게임")
 
