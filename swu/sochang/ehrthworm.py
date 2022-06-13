@@ -17,7 +17,6 @@ class Game():
         img = tk.PhotoImage(file='/Users/jiwon/Desktop/Python/sochang/nose.png')
         nose = canvas.create_image(x, y, anchor=NW, image=img)
 
-
     def noseMove(event):
         global x
         if event.char == 'Left':
@@ -30,9 +29,8 @@ class Game():
         canvas.coords(x, y)
 
         canvas = tk.Canvas(bg = '#AD7167', width = width, height = height)
-        canvas.pack()
-
-    
+        canvas.pack()   
+        
 my_label = Label(root, text="")
 my_label.config(text='위치는 : x| ' + str(x))
 my_label.pack(pady=20)
